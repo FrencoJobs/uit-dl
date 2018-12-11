@@ -1,0 +1,24 @@
+---
+layout: default
+---
+
+<h1> First Years </h1>
+{% loop_directory directory:fy iterator:file sort:descending %}
+   <a href="{{ file }}">{{ file }}</a>
+{% endloop_directory %}
+<h1> Second Years </h1>
+{% loop_directory directory:sy iterator:file sort:descending %}
+   <a href="{{ file }}">{{ file }}</a>
+{% endloop_directory %}
+<h1> Third Years </h1>
+{% loop_directory directory:ty iterator:file sort:descending %}
+   <a href="{{ file }}">{{ file }}</a>
+{% endloop_directory %}
+<h1> Fourth Years </h1>
+{% loop_directory directory:fty iterator:file sort:descending %}
+   <a href="{{ file }}">{{ file }}</a>
+{% endloop_directory %}
+<h1> Final Years </h1>
+{% loop_directory directory:fiy iterator:file sort:descending %}
+   <a href="{{ file }}">{{ file }}</a>
+{% endloop_directory %}
