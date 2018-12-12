@@ -1,25 +1,133 @@
 ---
 layout: default
 ---
-<div>
-<h1> First Years </h1>
-{% loop_directory directory:fy iterator:file sort:descending %}
-   <a href="{{ file }}">{{ file }}</a>
-{% endloop_directory %}
-<h1> Second Years </h1>
-{% loop_directory directory:sy iterator:file sort:descending %}
-   <a href="{{ file }}">{{ file }}</a>
-{% endloop_directory %}
-<h1> Third Years </h1>
-{% loop_directory directory:ty iterator:file sort:descending %}
-   <a href="{{ file }}">{{ file }}</a>
-{% endloop_directory %}
-<h1> Fourth Years </h1>
-{% loop_directory directory:fty iterator:file sort:descending %}
-   <a href="{{ file }}">{{ file }}</a>
-{% endloop_directory %}
-<h1> Final Years </h1>
-{% loop_directory directory:fiy iterator:file sort:descending %}
-   <a href="{{ file }}">{{ file }}</a>
-{% endloop_directory %}
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header
+mdl-layout--fixed-tabs">
+<header class="mdl-layout__header">
+<div class="mdl-layout__header-row" style="padding-left: 16px !important">
+<!-- Title -->
+<span class="mdl-layout-title">UIT Downloads</span>
+<div class="mdl-layout-spacer"></div>
+    <nav class="mdl-navigation">
+      <a class="mdl-navigation__link" target="_blank" href="https://frencojobs.ga">FWJ</a>
+    </nav>
+</div>
+<!-- Tabs -->
+<div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+<a href="#fixed-tab-1" id="tt1" class="mdl-layout__tab is-active">First</a>
+<div class="mdl-tooltip mdl-tooltip--large" for="tt1">First Years</div>
+<a href="#fixed-tab-2" id="tt2" class="mdl-layout__tab">Second</a>
+<div class="mdl-tooltip mdl-tooltip--large" for="tt2">Second Years</div>
+<a href="#fixed-tab-3" id="tt3" class="mdl-layout__tab">Third</a>
+<div class="mdl-tooltip mdl-tooltip--large" for="tt3">Third Years</div>
+<a href="#fixed-tab-4" id="tt4" class="mdl-layout__tab">Fourth</a>
+<div class="mdl-tooltip mdl-tooltip--large" for="tt4">Fourth Years</div>
+<a href="#fixed-tab-5" id="tt5" class="mdl-layout__tab">Finals</a>
+<div class="mdl-tooltip mdl-tooltip--large" for="tt5">Fifth Years</div>
+</div>
+</header>
+<main class="mdl-layout__content">
+<section class="mdl-layout__tab-panel is-active" id="fixed-tab-1">
+<div class="page-content" id="fyc">
+  <ul class="mdl-list" style="width: 100%">
+    {% for fl in site.static_files %}
+    {% if fl.path contains 'assets/fy' %}
+    <li class="mdl-list__item mdl-list__item--two-line fy">
+        <span class="mdl-list__item-primary-content">
+          <i class="material-icons mdl-list__item-icon">insert_drive_file</i>
+          <span>{{ fl.path | split:"/"| last | split:"." | first |replace:"_"," " }}</span>
+          <span class="mdl-list__item-sub-title">Available </span>
+        </span>
+        <span class="mdl-list__item-secondary-content">
+          <a class="mdl-list__item-secondary-action" href="{{ fl.path }}" download="{{ fl.path | absolute_url }}"><i class="material-icons">arrow_downward</i></a>
+        </span>
+      </li>
+    {% endif %}
+    {% endfor %}
+  </ul>
+</div>
+</section>
+<section class="mdl-layout__tab-panel" id="fixed-tab-2">
+<div class="page-content" id="syc">
+    <ul class="mdl-list" style="width: 100%">
+        {% for fl in site.static_files %}
+        {% if fl.path contains 'assets/sy' %}
+        <li class="mdl-list__item mdl-list__item--two-line sy">
+            <span class="mdl-list__item-primary-content">
+              <i class="material-icons mdl-list__item-icon">insert_drive_file</i>
+              <span>{{ fl.path | split:"/"| last | split:"." | first |replace:"_"," " }}</span>
+              <span class="mdl-list__item-sub-title">Available</span>
+            </span>
+            <span class="mdl-list__item-secondary-content">
+              <a class="mdl-list__item-secondary-action" href="{{ fl.path }}" download="{{ fl.path | absolute_url }}"><i class="material-icons">arrow_downward</i></a>
+            </span>
+          </li>
+        {% endif %}
+        {% endfor %}
+      </ul>
+</div>
+</section>
+<section class="mdl-layout__tab-panel" id="fixed-tab-3">
+<div class="page-content" id="tyc">
+    <ul class="mdl-list" style="width: 100%">
+        {% for fl in site.static_files %}
+          {% if fl.path contains 'assets/ty' %}
+      <li class="mdl-list__item mdl-list__item--two-line ty">
+          <span class="mdl-list__item-primary-content">
+            <i class="material-icons mdl-list__item-icon">insert_drive_file</i>
+            <span>{{ fl.path | split:"/"| last | split:"." | first |replace:"_"," " }}</span>
+            <span class="mdl-list__item-sub-title">Available</span>
+          </span>
+          <span class="mdl-list__item-secondary-content">
+            <a class="mdl-list__item-secondary-action" href="{{ fl.path }}" download="{{ fl.path | absolute_url }}"><i class="material-icons">arrow_downward</i></a>
+          </span>
+        </li>
+      {% endif %}
+        {% endfor %}
+      </ul>
+</div>
+</section>
+<section class="mdl-layout__tab-panel" id="fixed-tab-4">
+    <div class="page-content" id="ftyc">
+        <ul class="mdl-list" style="width: 100%">
+            {% for fl in site.static_files %}
+            {% if fl.path contains 'assets/fty' %}
+            <li class="mdl-list__item mdl-list__item--two-line fty">
+                <span class="mdl-list__item-primary-content">
+                  <i class="material-icons mdl-list__item-icon">insert_drive_file</i>
+                  <span>{{ fl.path | split:"/"| last | split:"." | first |replace:"_"," " }}</span>
+                  <span class="mdl-list__item-sub-title">Available</span>
+                </span>
+                <span class="mdl-list__item-secondary-content">
+                  <a class="mdl-list__item-secondary-action" href="{{ fl.path }}" download="{{ fl.path | absolute_url }}"><i class="material-icons">arrow_downward</i></a>
+                </span>
+              </li>
+            {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+    
+</section>
+<section class="mdl-layout__tab-panel" id="fixed-tab-5">
+    <div class="page-content" id="fiyc">
+        <ul class="mdl-list" style="width: 100%">
+            {% for fl in site.static_files %}
+            {% if fl.path contains 'assets/fiy' %}
+            <li class="mdl-list__item mdl-list__item--two-line fiy">
+                <span class="mdl-list__item-primary-content">
+                  <i class="material-icons mdl-list__item-icon">insert_drive_file</i>
+                  <span>{{ fl.path | split:"/"| last | split:"." | first |replace:"_"," " }}</span>
+                  <span class="mdl-list__item-sub-title">Available</span>
+                </span>
+                <span class="mdl-list__item-secondary-content">
+                  <a class="mdl-list__item-secondary-action" href="{{ fl.path }}" download="{{ fl.path | absolute_url }}"><i class="material-icons">arrow_downward</i></a>
+                </span>
+              </li>
+            {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+    
+</section>
+</main>
 </div>

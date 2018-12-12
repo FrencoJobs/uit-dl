@@ -1,1 +1,13 @@
+title: UIT Downloads
+description: Downloads for UIT
+author:
+  twitter: frencojobs
+url: https://uit-dl.ml
+logo: assets/UITLogo.gif
+twitter:
+  username: frencojobs
+  card: summary
 
+
+plugins:
+  - jekyll-seo-tag
